@@ -49,3 +49,26 @@ docker rm myblazorapp
 # if not use docker login -u user -p pass
 docker push v2kiran/blazorapp
 ```
+
+
+## Terraform azure
+
+```
+# authenticate to azure
+az login
+```
+
+## CI/CD
+Create an Azure AD app registration with contributor rights
+https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret
+
+
+### Set environment variables for azure SPN authentication for CICD
+```powershell
+[Environment]::SetEnvironmentVariable('ARM_CLIENT_ID','Alpha','User')
+[Environment]::SetEnvironmentVariable('ARM_CLIENT_SECRET','Alpha','User')
+[Environment]::SetEnvironmentVariable('ARM_SUBSCRIPTION_ID','Alpha','User')
+[Environment]::SetEnvironmentVariable('ARM_TENANT_ID','Alpha','User')
+
+```
+
