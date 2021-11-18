@@ -40,7 +40,7 @@ resource "azurerm_container_group" "tfcg_test" {
 
   container {
     name   = "blazorapp"
-    image  = "v2kiran/blazorapp:latest:${var.imagebuild}"
+    image  = "v2kiran/blazorapp:${var.imagebuild}"
     cpu    = "1"
     memory = "1"
     ports {
