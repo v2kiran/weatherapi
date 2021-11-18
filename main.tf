@@ -18,6 +18,12 @@ provider "azurerm" {
   features {}
 }
 
+variable "imagebuild" {
+  type = "string"
+  description = "Latest Image Build"
+
+}
+
 resource "azurerm_resource_group" "tf_test" {
   name     = "tfmainrg"
   location = "North Central US"
@@ -34,7 +40,7 @@ resource "azurerm_container_group" "tfcg_test" {
 
   container {
     name   = "blazorapp"
-    image  = "v2kiran/blazorapp:latest"
+    image  = "v2kiran/blazorapp:latest:${var.imagebuild}"
     cpu    = "1"
     memory = "1"
     ports {
